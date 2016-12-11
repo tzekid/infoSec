@@ -1,0 +1,22 @@
+<!doctype html>
+<title> Is this bob ? </title>
+<p> And your name is ...
+  <input type="text" style="text-align:center" onkeyup="bob(this.value)">
+</p>
+<h1 id="sentence"></h1>
+
+<script>
+  var dillan = (x) =>{ console.log(x); document.getElementById("sentence").innerHTML = x; }
+  var xmlhttp = new XMLHttpRequest();
+
+  function bob(word) {
+    if (word.length === 0) dillan("");
+    else {
+        if (xmlhttp.readyState == 4 || xmlhttp.status == 200)
+          dillan(xmlhttp.responseText);
+          
+        xmlhttp.open("GET", "./bob.php?q=" + word);
+        xmlhttp.send();
+    }
+  }
+</script>
