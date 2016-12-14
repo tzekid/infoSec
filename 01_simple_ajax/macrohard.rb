@@ -51,7 +51,7 @@ elsif list
   rescue(abort "There is no file named: #{list}")
   end
 
-  # Replace all whitespace and end with newline
+  # Format newlines
   text.gsub!(/\r\n?/, "\n")
 
   # Create an output file
@@ -59,6 +59,7 @@ elsif list
   rescue(abort "You have no rights to write output.txt")
   end
   
+  # Do the thing
   ln = 0
   text.each_line do |line|
     line = line.strip
