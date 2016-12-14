@@ -27,14 +27,13 @@ def check(email, line = 0)
 
   data = JSON.parse(c.body_str)
 
-  # If the "MicrosoftAccount" tag
-  # is present the account if valid.
+  # Check the "MicrosoftAccount" Tag
   if(data["MicrosoftAccount"] == 1)
-    printf "%02x %32s | Check OK | Macrohard\n", (line+1), email
+    printf "%02x %32s | Check OK | INVALID | Macrohard\n", (line+1), email
     return false
   
   elsif (data["MicrosoftAccount"] == 0)
-    printf "%02x %32s | Check OK | Microsoft\n", (line+1), email 
+    printf "%02x %32s | Check OK |  VALID  | Microsoft\n", (line+1), email 
     return true
 
   else exit_
