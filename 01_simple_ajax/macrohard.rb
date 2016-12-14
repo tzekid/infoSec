@@ -41,8 +41,7 @@ def check(email, line = 0)
 end
 
 
-if mail then
-  check(mail)
+if mail then check(mail)
   
 elsif list
   # Try to open the file
