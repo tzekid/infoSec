@@ -42,7 +42,6 @@ end
 
 
 if mail then check(mail)
-  
 elsif list
   # Try to open the file
   begin  text = File.open(list).read
