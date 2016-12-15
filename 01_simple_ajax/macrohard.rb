@@ -15,10 +15,11 @@ mail = (input.include? "@")    ? input : false
 list = (input.include? ".txt") ? input : false
 if not mail and not list then exit_ end
 
-# Token will work for ~1 Month
+
 def check(email, line = 0)
   if not (email.include? "@") then return false end
   
+# Token will work for ~1 Month
   begin c = Curl::Easy.perform("http://login.microsoft.com/common/userrealm/?user=#{email}&api-version=2.1&stsRequest=rQIIAeNisNLJKCkpKLbS1y_ILypJzNHLzUwuyi_OTyvJz8vJzEvVS87P1csvSs9MAbGKhLgEVHZIfTk2gc1hX6NOeetrV7VVjMqEjdC_wMj4gpHxFpOgf1G6Z0p4sVtqSmpRYklmft4jJt7Q4tQi_7ycypD87NS8Scx8OfnpmXnxxUVp8Wk5-eVAAaAJBYnJJfElmcnZqSW7mFXMDQyTDJIN03QNjU3NdE2SjY10kyxMjXXNjZKMzQ1NkhNNDVIusAj8YGFcxAp0s9_a1dsnrrrg3fHpeJnD2gkzT7HqW4RXVia7-OaYGVd4umZmBRelWvo5hSSmZ7ukOnkF5UUmenhnlno4hucVmdgaWxke4GQEAA2&checkForMicrosoftAccount=true")
   rescue
     printf("%02x %32s | Check FAIL\n", (line+1), email)
