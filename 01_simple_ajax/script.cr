@@ -1,5 +1,4 @@
 #!/usr/bin/crystal
-# The compiled version (?only) works on linux
 require "http"
 
 # Take an argument (cmd line)
